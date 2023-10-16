@@ -1,6 +1,6 @@
 .image-card {
     --blur: 16px;
-    --size: clamp(200px, 40vmin, 400px);
+    --size: clamp(200px, 30vmin, 250px);
     width: var(--size);
     aspect-ratio: 1;
     position: relative;

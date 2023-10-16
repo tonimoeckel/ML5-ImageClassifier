@@ -1,9 +1,13 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-body {
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
+.full-size-grid {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+.demo-logo {
+    color: white;
 }

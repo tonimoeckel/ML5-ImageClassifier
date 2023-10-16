@@ -1,52 +1,23 @@
 import "./index.css";
-import {useImageClassifier} from "../../provider/MLProvider";
-import {useCallback, useEffect, useRef, useState} from "react";
+import {useClassifyImage} from "../../provider/MLProvider";
+import {useRef, useState} from "react";
 import {Pie} from "react-chartjs-2";
 
-interface ClassificationResult {label: string, confidence: number}
-
-const loadImage = (src: string) =>
-    new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = reject;
-        img.src = src;
-    })
-;
 
 export const MLImageCard: React.FC<{
     src: string;
 }> = props => {
 
     const [resultIndex, setResultIndex] = useState(0)
-    const { classifier } = useImageClassifier();
     const imageRef = useRef<any>();
-    const [classifications, setClassifications] = useState<ClassificationResult[]>([])
 
-    const doIt = useCallback(async () => {
-        try {
-            const image = await loadImage(props.src);
-            classifier.classify(image, (err: any, classifications: ClassificationResult[]) => {
+    const {classificationResult} = useClassifyImage(props.src);
 
-                if (!err) {
-                    setResultIndex(0);
-                    setClassifications(classifications);
-                }
+    let classification = null;
+    if (classificationResult && classificationResult.length > 0) {
+        classification = classificationResult[resultIndex];
+    }
 
-            })
-        }catch (e) {
-            console.log(e);
-        }
-    }, [classifier, props.src]);
-
-    useEffect(() => {
-
-        doIt();
-
-
-    }, [imageRef, props.src, doIt]);
-
-    const classification = classifications[resultIndex];
 
     return (
         <div style={{display: 'flex', position: 'relative', flexDirection: 'row', alignItems: 'center', gap: 16}}>
@@ -56,7 +27,7 @@ export const MLImageCard: React.FC<{
                 {classification ? <span>{classification.label}</span> : null}
                     {classification ? <span>{classification.confidence}</span> : null}
                     {classification ? <span onClick={() => {
-                        if ((resultIndex + 1) < classifications.length) {
+                        if ((resultIndex + 1) < classificationResult!.length) {
                             setResultIndex(resultIndex + 1)
                         }else {
                             setResultIndex(0)
