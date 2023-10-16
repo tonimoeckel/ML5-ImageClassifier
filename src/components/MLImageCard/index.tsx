@@ -1,6 +1,6 @@
 import "./index.css";
 import {useImageClassifier} from "../../provider/MLProvider";
-import {useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import {Pie} from "react-chartjs-2";
 
 interface ClassificationResult {label: string, confidence: number}
@@ -23,7 +23,7 @@ export const MLImageCard: React.FC<{
     const imageRef = useRef<any>();
     const [classifications, setClassifications] = useState<ClassificationResult[]>([])
 
-    const doIt = async () => {
+    const doIt = useCallback(async () => {
         try {
             const image = await loadImage(props.src);
             classifier.classify(image, (err: any, classifications: ClassificationResult[]) => {
@@ -37,21 +37,21 @@ export const MLImageCard: React.FC<{
         }catch (e) {
             console.log(e);
         }
-    }
+    }, [classifier, props.src]);
 
     useEffect(() => {
 
         doIt();
 
 
-    }, [imageRef, props.src]);
+    }, [imageRef, props.src, doIt]);
 
     const classification = classifications[resultIndex];
 
     return (
         <div style={{display: 'flex', position: 'relative', flexDirection: 'row', alignItems: 'center', gap: 16}}>
             <div className={"image-card"}>
-                <img ref={imageRef} className={"image-card__img"} src={props.src} />
+                <img ref={imageRef} className={"image-card__img"} src={props.src}  alt={"mlimage"}/>
                 <span className="image-card__footer">
                 {classification ? <span>{classification.label}</span> : null}
                     {classification ? <span>{classification.confidence}</span> : null}
