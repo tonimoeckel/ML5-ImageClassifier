@@ -2,7 +2,6 @@
   "name": "deep-learning-ml5",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/tonimoeckel/ML5-ImageClassifier",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
