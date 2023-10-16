@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tonimoeckel/ML5-ImageClassifier/static/css/main.f6e51b72.css",
+    "main.js": "/tonimoeckel/ML5-ImageClassifier/static/js/main.de8010f0.js",
+    "static/js/787.de7e376c.chunk.js": "/tonimoeckel/ML5-ImageClassifier/static/js/787.de7e376c.chunk.js",
+    "index.html": "/tonimoeckel/ML5-ImageClassifier/index.html",
+    "main.f6e51b72.css.map": "/tonimoeckel/ML5-ImageClassifier/static/css/main.f6e51b72.css.map",
+    "main.de8010f0.js.map": "/tonimoeckel/ML5-ImageClassifier/static/js/main.de8010f0.js.map",
+    "787.de7e376c.chunk.js.map": "/tonimoeckel/ML5-ImageClassifier/static/js/787.de7e376c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f6e51b72.css",
+    "static/js/main.de8010f0.js"
+  ]
+}
