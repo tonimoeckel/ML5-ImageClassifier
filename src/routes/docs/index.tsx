@@ -4,7 +4,7 @@ import Markdown from "react-markdown";
 import {intro} from "./intro";
 
 
-export const DocsRoute: React.FC<{}> = props => {
+const DocsRoute: React.FC<{}> = props => {
 
 
     return (
@@ -15,3 +15,5 @@ export const DocsRoute: React.FC<{}> = props => {
         </div>
     );
 };
+
+export default DocsRoute;

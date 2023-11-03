@@ -9,7 +9,7 @@ import pizza from "./../../assets/Pizza_salami_slices.jpg"
 import {MLImageGrid} from "../../components/MLImageGrid";
 
 
-export const HomeRoute: React.FC<{  }> = props => {
+const HomeRoute: React.FC<{  }> = props => {
     return (
         <div>
             <MLImageGrid initImages={[
@@ -26,3 +26,5 @@ export const HomeRoute: React.FC<{  }> = props => {
 
 );
 };
+
+export default HomeRoute;
