@@ -1,15 +1,23 @@
-import Route from "../components/Route";
+import React from "react";
+
 import {HomeRoute} from "./home";
+import {Outlet, Route, Routes} from "react-router-dom";
+import {DocsRoute} from "./docs";
+import {AppLayout} from "../components/Layout";
 
 export const Router: React.FC<{}> = props => {
     return (
-        <>
-            <Route path="/">
-                <HomeRoute />
+        <Routes>
+            <Route
+                element={
+                <AppLayout>
+                    <Outlet />
+                </AppLayout>
+                }
+            >
+                <Route path="/" element={<HomeRoute />}/>
+                <Route path="/docs" element={<DocsRoute/>}/>
             </Route>
-            <Route path="/docs">
-                Docs
-            </Route>
-        </>
+        </Routes>
     );
 };

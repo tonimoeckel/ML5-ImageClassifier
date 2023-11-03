@@ -1,5 +1,6 @@
 import React from 'react';
 import {Layout, Menu, theme} from 'antd';
+import {Link} from "react-router-dom";
 
 const { Header, Content, Footer } = Layout;
 
@@ -32,21 +33,21 @@ export const AppLayout: any = (props: any) => {
                     defaultSelectedKeys={['home']}
                     items={[{
                         key: 'home',
-                        label: 'Home'
+                        label: <Link to={"/"}>Home</Link>,
                     },{
                         key: 'docs',
-                        label: 'Docs'
+                        label: <Link to={"/docs"}>Docs</Link>,
                     }]}
                 />
             </Header>
             <Content className="site-layout">
 
-                <div style={{ padding: 24, background: colorBgContainer }}>
+                <div style={{minHeight: "calc(100%-50px)", padding: 24, background: colorBgContainer,  }}>
                     {props.children}
                 </div>
 
             </Content>
-            <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
+            <Footer style={{ textAlign: 'center' }}>Toni Möckel</Footer>
         </Layout>
     );
 };

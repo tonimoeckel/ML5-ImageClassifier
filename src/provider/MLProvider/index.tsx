@@ -39,7 +39,7 @@ export const useImageClassifier = () => {
     return useContext(ImageClassifierContext);
 };
 
-interface ClassificationResult {label: string, confidence: number}
+export interface ClassificationResult {label: string, confidence: number}
 
 export const useClassifyImage = (imageUrl: string | any) => {
 

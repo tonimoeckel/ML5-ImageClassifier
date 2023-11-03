@@ -3,13 +3,14 @@ import React, {useState} from "react";
 import {ML5ImageCard} from "../ML5ImageCard";
 import {MasonryLayout} from "../MasonryLayout";
 import {InboxOutlined} from '@ant-design/icons';
+import {useMeasure} from "../../hooks/useMeasure";
 
 const { Dragger } = Upload;
 
 export const MLImageGrid: React.FC<{ initImages: any[] }> = props => {
 
     const [data, setData] = useState(props.initImages);
-
+    const [ref, { width }] = useMeasure();
 
     const uploadProps: UploadProps = {
         name: 'file',
@@ -31,7 +32,10 @@ export const MLImageGrid: React.FC<{ initImages: any[] }> = props => {
 
     };
 
-    return <div>
+    console.log(width);
+    console.log(width ?Math.floor(width / 400): 1);
+
+    return <div ref={ref}>
         <Space size={"large"} direction={"vertical"} style={{width: "100%"}}>
             <Dragger {...uploadProps}>
                 <p className="ant-upload-drag-icon">
@@ -43,8 +47,8 @@ export const MLImageGrid: React.FC<{ initImages: any[] }> = props => {
                 </p>
             </Dragger>
 
-            <MasonryLayout columns={3} gap={30} items={data.map((item) => {
-                return <ML5ImageCard image={item}/>
+            <MasonryLayout columns={width ? Math.floor(width / 250) : 3} gap={30} items={data.map((item) => {
+                return <ML5ImageCard image={item} width={width ? (width / Math.floor(width / 250)-30): undefined} />
             })} />
         </Space>
 
