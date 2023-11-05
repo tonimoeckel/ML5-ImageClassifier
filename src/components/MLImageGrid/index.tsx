@@ -7,7 +7,7 @@ import {useMeasure} from "../../hooks/useMeasure";
 
 const { Dragger } = Upload;
 
-export const MLImageGrid: React.FC<{ initImages: any[] }> = props => {
+export const MLImageGrid: React.FC<{ initImages: any[], uploadEnabled?: boolean }> = props => {
 
     const [data, setData] = useState(props.initImages);
     const [ref, { width }] = useMeasure();
@@ -32,12 +32,11 @@ export const MLImageGrid: React.FC<{ initImages: any[] }> = props => {
 
     };
 
-    console.log(width);
-    console.log(width ?Math.floor(width / 400): 1);
 
     return <div ref={ref}>
         <Space size={"large"} direction={"vertical"} style={{width: "100%"}}>
-            <Dragger {...uploadProps}>
+
+            {props.uploadEnabled ?  <Dragger {...uploadProps}>
                 <p className="ant-upload-drag-icon">
                     <InboxOutlined />
                 </p>
@@ -45,7 +44,8 @@ export const MLImageGrid: React.FC<{ initImages: any[] }> = props => {
                 <p className="ant-upload-hint">
                     Unterstützte Dateien: .jpg
                 </p>
-            </Dragger>
+            </Dragger> : null}
+
 
             <MasonryLayout columns={width ? Math.floor(width / 250) : 3} gap={30} items={data.map((item) => {
                 return <ML5ImageCard image={item} width={width ? (width / Math.floor(width / 250)-30): undefined} />

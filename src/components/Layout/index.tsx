@@ -1,6 +1,6 @@
 import React from 'react';
 import {Layout, Menu, theme} from 'antd';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 const { Header, Content, Footer } = Layout;
 
@@ -10,6 +10,8 @@ export const AppLayout: any = (props: any) => {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
+
+    const location = useLocation();
 
     return (
         <Layout>
@@ -30,13 +32,13 @@ export const AppLayout: any = (props: any) => {
                     style={{width: 300}}
                     theme="dark"
                     mode="horizontal"
-                    defaultSelectedKeys={['home']}
+                    defaultSelectedKeys={[location.pathname]}
                     items={[{
-                        key: 'home',
-                        label: <Link to={"/"}>Home</Link>,
+                        key: '/',
+                        label: <Link to={"/"}>Playground</Link>,
                     },{
-                        key: 'docs',
-                        label: <Link to={"/docs"}>Docs</Link>,
+                        key: '/docs',
+                        label: <Link to={"/docs"}>Dokumentation</Link>,
                     }]}
                 />
             </Header>

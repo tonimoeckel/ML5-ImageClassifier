@@ -19,6 +19,36 @@ ml5.js ist eine benutzerfreundliche Bibliothek, die auf TensorFlow.js aufbaut un
 
 Die Art der Bilder, die für Tests verwendet werden sollten, hängt vom spezifischen Modell und den Daten ab, auf denen es trainiert wurde. Es könnte sinnvoll sein, Bilder zu testen, die repräsentativ für die Daten sind, mit denen das Modell trainiert wurde, und die Bildklassifikation unter verschiedenen Bedingungen zu testen, um ein besseres Verständnis für die Modellleistung zu erhalten.
 
-Für spezifischere Informationen über die Trainingsdaten der vorab trainierten Modelle in ml5.js wird empfohlen, die offizielle Dokumentation von ml5.js oder die Community-Ressourcen zu konsultieren.
+1. **Relevanz der Klassen**:
+    - Eine Überprüfung der Klassen, auf die ml5.js trainiert wurde, ist essenziell, um die Relevanz der ausgewählten Bilder sicherzustellen. Die [Liste der Klassen](https://github.com/ml5js/ml5-library/blob/main/src/utils/IMAGENET_CLASSES.js) bietet eine klare Vorstellung von den erkannten Objekten und Szenen.
 
-    `;
+2. **Bildqualität**:
+    - Eine hohe Auflösung und gute Qualität der Bilder sind bevorzugt, da unscharfe oder stark komprimierte Bilder die Klassifikationsgenauigkeit negativ beeinflussen könnten.
+
+3. **Einfacher Hintergrund**:
+    - Bilder mit einem einfachen Hintergrund könnten bevorzugt werden, um eine Ablenkung durch irrelevante Informationen zu minimieren und die Konzentration auf das Hauptobjekt zu ermöglichen.
+
+4. **Zentrale Platzierung des Objekts**:
+    - Eine zentrale Platzierung des zu erkennenden Objekts im Bild könnte die Erkennung erleichtern.
+
+5. **Gute Beleuchtung**:
+    - Eine angemessene Beleuchtung ist essenziell, um sicherzustellen, dass das Objekt im Bild deutlich sichtbar ist und Über- oder Unterbelichtung vermieden wird.
+
+6. **Minimale Überlappung**:
+    - Eine klare Trennung von Objekten ohne Überlappung könnte die Erkennung erleichtern.
+
+7. **Diversität**:
+    - Eine Vielfalt von Bildern, die das Objekt aus verschiedenen Winkeln und unter verschiedenen Bedingungen zeigen, könnte empfohlen werden, um die Robustheit des Modells zu testen.
+
+8. **Bildgröße**:
+    - Eine Anpassung der Bildgröße gemäß den spezifischen Anforderungen von ml5.js könnte notwendig sein, wobei die Dokumentation von ml5.js für spezifische Anforderungen an die Bildgröße konsultiert werden könnte.
+
+## Vergleich der eigenen Ergebnissen
+
+
+
+
+
+
+`
+
