@@ -17,6 +17,7 @@ export const AppLayout: any = (props: any) => {
         <Layout>
             <Header
                 style={{
+                    background: 'none',
                     gap: 16,
                     top: 0,
                     zIndex: 1,
@@ -25,20 +26,27 @@ export const AppLayout: any = (props: any) => {
                     alignItems: 'center',
                 }}
             >
-                <div className="demo-logo">
-                    Image Classifier
+                <div className="demo-logo" style={{color: 'black'}}>
+                    Deep Learning
                 </div>
                 <Menu
-                    style={{width: 300}}
-                    theme="dark"
+                    style={{width: 300, background: 'none'}}
                     mode="horizontal"
                     defaultSelectedKeys={[location.pathname]}
                     items={[{
-                        key: '/',
-                        label: <Link to={"/"}>Playground</Link>,
+                        key: '/ea1',
+                        label: <Link to={"/ea1"}>EA1</Link>,
+                        children: [{
+                            key: '/ea1/docs',
+                            label: <Link to={"/ea1/docs"}>Dokumentation</Link>,
+                        }]
                     },{
-                        key: '/docs',
-                        label: <Link to={"/docs"}>Dokumentation</Link>,
+                        key: '/ea2',
+                        label: <Link to={"/ea2"}>EA2</Link>,
+                        children: [{
+                            key: '/ea2/docs',
+                            label: <Link to={"/ea1/docs"}>Dokumentation</Link>,
+                        }]
                     }]}
                 />
             </Header>
@@ -49,7 +57,7 @@ export const AppLayout: any = (props: any) => {
                 </div>
 
             </Content>
-            <Footer style={{ textAlign: 'center' }}>Toni Möckel</Footer>
+
         </Layout>
     );
 };

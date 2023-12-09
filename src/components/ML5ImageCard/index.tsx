@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, Modal, Skeleton} from 'antd';
 import {useClassifyImage} from "../../provider/MLProvider";
 import {Pie} from "react-chartjs-2";
-import { ClassificationResultCharts} from "../ClassificationResultCharts";
+import {ClassificationResultCharts} from "../ClassificationResultCharts";
 
 export const ML5ImageCard: React.FC<{ image: any, width?: number }> = props => {
 
