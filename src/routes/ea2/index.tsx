@@ -4,6 +4,7 @@ import {Col, Row, Tabs} from "antd";
 import {Scatter} from "react-chartjs-2";
 import {FFNNModelForm} from "../../components/FFNNModelForm";
 import {LoadFFNNModel} from "../../components/LoadFFNNModel";
+import {Link} from "react-router-dom";
 
 const originalData = generateDataForPlot();
 
@@ -63,8 +64,7 @@ export const EA2Route: React.FC<{}> = props => {
 
     return <Row>
 
-        <Col md={16}>
-            <h3>Vorschau als Plot</h3>
+        <Col md={12}>
             <Scatter
                 options={{
                     scales: {
@@ -79,10 +79,9 @@ export const EA2Route: React.FC<{}> = props => {
                     },
                 }}
                 data={chartData} />
-
+            <Link to={'/ea2/docs'}>Weitere Informationen finden sie in der Documentation</Link>
         </Col>
-        <Col md={8}>
-            <h3>Modelle</h3>
+        <Col md={12}>
             <Tabs
                 defaultActiveKey="load"
                 items={[
@@ -99,9 +98,9 @@ export const EA2Route: React.FC<{}> = props => {
                         label: 'Neues Modell',
                         key: 'create',
                         children:  <div>
-                            <h4>Training Data</h4>
+                            <b>Training Data</b>
                             <TrainingDataGenerator onGenerate={handleDataGenerated}/>
-                            <h4>Model Setup</h4>
+                            <b>Model Setup</b>
                             <FFNNModelForm trainingData={trainingData} onPredictedData={(predicatedData: [number[],number[]]) => {
                             setPredictedData(predicatedData)
                             }}/></div>

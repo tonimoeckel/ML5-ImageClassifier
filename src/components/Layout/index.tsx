@@ -34,18 +34,11 @@ export const AppLayout: any = (props: any) => {
                     mode="horizontal"
                     defaultSelectedKeys={[location.pathname]}
                     items={[{
-                        key: '/ea1',
-                        label: <Link to={"/ea1"}>EA1</Link>,
-                        children: [{
-                            key: '/ea1/docs',
-                            label: <Link to={"/ea1/docs"}>Dokumentation</Link>,
-                        }]
-                    },{
                         key: '/ea2',
                         label: <Link to={"/ea2"}>EA2</Link>,
                         children: [{
                             key: '/ea2/docs',
-                            label: <Link to={"/ea1/docs"}>Dokumentation</Link>,
+                            label: <Link to={"/ea2/docs"}>Dokumentation</Link>,
                         }]
                     }]}
                 />

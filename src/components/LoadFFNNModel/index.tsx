@@ -7,16 +7,16 @@ export const LoadFFNNModel: React.FC<{
 
     const [list, setList] = useState<any[]>([{
         title: 'Best Fit',
-        description: 'N=500, Adam, learning rate of 0.1',
+        description: 'Epochs=500, Adam, N=1000, 4 Layers',
         url: '/models/model_2023-12-09_23-18-49.json'//best-fit.json'
     },{
         title: 'Overfitting',
-        description: 'N=2000, Adam, learning rate of 0.1',
+        description: 'Epochs=1000, Adam, N=1000, 5 Layers',
         url: '/models/overfitting.json'
     },
         {
             title: 'Underfitting',
-            description: 'N=100, Adam, learning rate of 0.1',
+            description: 'Epochs=50, Adam, 2 Layers',
             url: '/models/underfitting.json'
         }]);
 

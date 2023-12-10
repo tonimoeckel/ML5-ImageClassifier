@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {InputNumber, Slider} from 'antd';
+import {Flex, InputNumber, Slider} from 'antd';
 import * as tf from '@tensorflow/tfjs';
 
 interface TrainingDataGeneratorProps {
@@ -20,7 +20,7 @@ export function generateDataForPlot() {
 
 
 const TrainingDataGenerator: React.FC<TrainingDataGeneratorProps> = ({ onGenerate }) => {
-    const [sampleSize, setSampleSize] = useState<number>(10);
+    const [sampleSize, setSampleSize] = useState<number>(100);
     const [noiseVariance, setNoiseVariance] = useState<number>(0.1);
 
 
@@ -42,41 +42,51 @@ const TrainingDataGenerator: React.FC<TrainingDataGeneratorProps> = ({ onGenerat
         <div>
             <div>
                 <label>
-                    Sample Size (N): {sampleSize}
-                    <Slider
-                        min={5}
-                        max={1000}
-                        step={1}
-                        marks={{
-                            5: '5',
-                            100: '100',
-                            300: '300',
-                            500: '500',
-                            800: '800',
-                            1000: '1k',
-                        }}
-                        value={sampleSize}
-                        onChange={setSampleSize}
-                    />
+                    Sample Size (N): {sampleSize} <label>
+                </label>
+                    <Flex>
+                        <div style={{flexGrow: 1}}>
+                            <Slider
+                                min={5}
+                                max={1000}
+                                step={1}
+                                marks={{
+                                    5: '5',
+                                    100: '100',
+                                    300: '300',
+                                    500: '500',
+                                    800: '800',
+                                    1000: '1k',
+                                }}
+                                value={sampleSize}
+                                onChange={setSampleSize}
+                            />
+                        </div>
+                        <div>
+                            <label style={{marginLeft: 10}}>Varianz: </label>
+                            <InputNumber
+                                style={{ width: 100, margin: '0 16px' }}
+                                min={0}
+                                max={0.5}
+                                step={0.01}
+                                value={noiseVariance}
+                                onChange={(v) => {
+                                    if (v) {
+                                        setNoiseVariance(v);
+                                    }else {
+                                        setNoiseVariance(0);
+                                    }
+                                }}
+                            />
+                        </div>
+
+
+                    </Flex>
+
                 </label>
             </div>
             <div>
-                <label>
-                    Noise Variance:
-                    <InputNumber
-                        min={0}
-                        max={0.5}
-                        step={0.01}
-                        value={noiseVariance}
-                        onChange={(v) => {
-                            if (v) {
-                                setNoiseVariance(v);
-                            }else {
-                                setNoiseVariance(0);
-                            }
-                        }}
-                    />
-                </label>
+
             </div>
         </div>
     );
