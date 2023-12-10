@@ -17,9 +17,9 @@ Der bereitgestellte Code umfasst mehrere React-Komponenten und Funktionen, die i
 - UI-Komponenten: Enthält TrainingDataGenerator, FFNNModelForm und Diagramme zur Visualisierung der Daten.
 
 ## Technologien und Bibliotheken
-React: Eine Bibliothek zur Erstellung von Benutzeroberflächen. [Dokumentation](https://reactjs.org/docs/getting-started.html)
-TensorFlow.js: Eine JavaScript-Bibliothek für maschinelles Lernen. [Dokumentation](https://www.tensorflow.org/js)
-Ant Design: Eine Design-Bibliothek für React, die eine Vielzahl von UI-Komponenten bietet. [Dokumentation](https://ant.design)
+- [React](https://reactjs.org/docs/getting-started.html): Eine Bibliothek zur Erstellung von Benutzeroberflächen. 
+- [TensorFlow.js](https://www.tensorflow.org/js): Eine JavaScript-Bibliothek für maschinelles Lernen. 
+- [Ant Design](https://ant.design): Eine Design-Bibliothek für React, die eine Vielzahl von UI-Komponenten bietet. 
 
 ## Anwendung und Nutzung
 Diese Anwendung ermöglicht es Benutzern, eigene neuronale Netzwerkmodelle zu erstellen, zu trainieren und Vorhersagen zu treffen. Die Benutzeroberfläche ist interaktiv und benutzerfreundlich, wobei Ant Design für ein ansprechendes Design sorgt. Der Schwerpunkt liegt auf der Flexibilität bei der Modellkonfiguration und der Visualisierung von Trainings- und Vorhersagedaten.
@@ -31,6 +31,12 @@ Diese Anwendung ermöglicht es Benutzern, eigene neuronale Netzwerkmodelle zu er
 - Erstellen, trainieren und vorhersagen Sie ein Modell in dem sie auf den Button "Create" drücken.
     - Wählen Sie die Anzahl der Epochen, den Optimierer, die Lernrate und die Anzahl der Schichten.
 - Trainingsdaten, vorhergesagte Daten und die originalen Daten werden in einem Diagramm angezeigt.
+
+## Details zur Trainingsdatengenerierung
+Tensorflow übernimmt das erstellen der Zufallswerte. Die Trainingsdaten werden mit einer Normalverteilung erzeugt. Die Varianz kann über den Slider eingestellt werden. Die Varianz wird dann als Standardabweichung verwendet. Die Trainingsdaten werden dann mit der Funktion "tf.randomNormal" erzeugt. Die Funktion erzeugt eine Tensor mit der angegebenen Form und der Standardabweichung. Die Werte werden dann in einem Array gespeichert und zurückgegeben.
+
+## Details zur Modellerstellung
+Der Nutzer kann die Anzahl der Epochen, den Optimierer, die Lernrate und die Anzahl der Schichten auswählen. Wurde ein Modell erstellt, kann nach erfolgreichen Training die Vorhersage gestartet werden. Die Vorhersage wird dann in einem Array gespeichert und zurückgegeben. Das Modell kann außerdem heruntergeladen werden.
 
 ## Overfitting und Underfitting
 
